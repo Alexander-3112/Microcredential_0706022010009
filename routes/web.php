@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//route resource
+Route::resource('/borrowers', \App\Http\Controllers\BorrowerController::class);
