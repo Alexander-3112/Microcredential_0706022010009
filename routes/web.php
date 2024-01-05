@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 //route resource
 Route::resource('/borrowers', \App\Http\Controllers\BorrowerController::class);
+//route resource
+Route::resource('/books', \App\Http\Controllers\BookController::class);

@@ -129,4 +129,24 @@ class BorrowerController extends Controller
         //redirect to index
         return redirect()->route('borrowers.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
+    /**
+     * destroy
+     *
+     * @param  mixed $borrower
+     * @return void
+     */
+    public function destroy($id): RedirectResponse
+    {
+        //get borrower by ID
+        $borrower = Borrower::findOrFail($id);
+
+        //delete image
+        Storage::delete('public/borrowers/'. $borrower->image);
+
+        //delete borrower
+        $borrower->delete();
+
+        //redirect to index
+        return redirect()->route('borrowers.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
 }
