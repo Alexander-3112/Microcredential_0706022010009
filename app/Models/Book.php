@@ -18,4 +18,8 @@ class Book extends Model
         'author',
         'year',
     ];
+
+    public function borrowing(){
+        return $this->hasMany(Borrowing::class, 'id', 'id_buku');
+    }
 }

@@ -11,4 +11,8 @@ class Borrower extends Model
         'nama','no_telp','nim'
         // Atribut lain yang mungkin perlu diisi secara masif
     ];
+
+    public function borrowing(){
+        return $this->hasMany(Borrowing::class, 'id', 'id_nama');
+    }
 }
