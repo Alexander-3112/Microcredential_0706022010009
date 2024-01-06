@@ -41,7 +41,7 @@
                     <th>Nama Book</th>
                     <th>Nama Borrower</th>
                     <th>Tanggal Pinjam</th>
-                    <th>Tanggal Kembali</th>
+                    <th>Tanggal Harus Kembali</th>
                 </tr>
             </thead>
             <tbody>

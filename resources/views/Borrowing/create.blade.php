@@ -29,7 +29,7 @@
         <label for="tanggal_pinjam">Tanggal Pinjam:</label>
         <input type="date" name="tanggal_pinjam" id="tanggal_pinjam" required onchange="calculateReturnDate()">
         <br>
-        <label for="tanggal_kembali">Tanggal Kembali:</label>
+        <label for="tanggal_kembali">Tanggal Harus Kembali:</label>
         <input type="date" name="tanggal_kembali" id="tanggal_kembali" readonly required>
         <br>
         <button type="submit">Simpan</button>
