@@ -26,6 +26,11 @@
                             @method('PUT')
 
                             <div class="form-group">
+                                <label class="font-weight-bold">GAMBAR</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+
+                            <div class="form-group">
                                 <label class="font-weight-bold">Title</label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" placeholder="Masukkan Title">
                             

@@ -51,15 +51,19 @@ class BookController extends Controller
     {
         //validate form
         $this->validate($request, [
+            'image'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'title'     => 'required',
             'author'     => 'required',
             'year'   => 'required|min:4'
         ]);
 
-       
+       //upload image
+       $image = $request->file('image');
+       $image->storeAs('public/books', $image->hashName());
 
         //create book
         Book::create([
+            'image'     => $image->hashName(),
             'title'     => $request->title,
             'author'     => $request->author,
             'year'   => $request->year
@@ -109,6 +113,7 @@ class BookController extends Controller
     {
         //validate form
         $this->validate($request, [
+            'image' => 'required',
             'title'     => 'required',
             'author'     => 'required',
             'year'   => 'required|min:4'
@@ -121,11 +126,38 @@ class BookController extends Controller
 
             //update book with new image
             $book->update([
+                'image' => $request->image,
                 'title'     => $request->title,
                 'author'     => $request->author,
                 'year'   => $request->year
             ]);
+//check if image is uploaded
+if ($request->hasFile('image')) {
 
+    //upload new image
+    $image = $request->file('image');
+    $image->storeAs('public/books', $image->hashName());
+
+    //delete old image
+    Storage::delete('public/books/'.$book->image);
+
+    //update book with new image
+    $book->update([
+        'image'     => $image->hashName(),
+        'title'     => $request->title,
+        'author'     => $request->author,
+        'year'   => $request->year
+    ]);
+
+} else {
+
+    //update book without image
+    $book->update([
+        'title'     => $request->title,
+                'author'     => $request->author,
+                'year'   => $request->year
+    ]);
+}
 
         //redirect to index
         return redirect()->route('books.index')->with(['success' => 'Data Berhasil Diubah!']);

@@ -30,6 +30,9 @@
                         <p class="mt-3">
                             {{ $book->year }}
                         </p>
+                        <p>
+                        <img src="{{ asset('/storage/books/'.$book->image) }}" class="rounded" style="width: 150px">
+</p>
                     </div>
                 </div>
             </div>

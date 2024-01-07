@@ -30,10 +30,12 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
+                              
                                 <th scope="col">title</th>
                                 <th scope="col">author</th>
                                 <th scope="col">year</th>
                                 <th scope="col">AKSI</th>
+                                <th scope="col">GAMBAR</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -49,6 +51,9 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                            <td class="text-center">
+                                        <img src="{{ asset('/storage/books/'.$book->image) }}" class="rounded" style="width: 150px">
+                                    </td>
                                         </form>
                                     </td>
                                 </tr>
